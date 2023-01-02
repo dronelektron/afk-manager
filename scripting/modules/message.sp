@@ -18,3 +18,11 @@ void Message_PlayerMovedToSpectators(int client) {
 void MessageLog_ClientKicked(int client) {
     LogMessage("\"%L\" kicked for inactivity", client);
 }
+
+void MessageReply_AfkStatusUsage(int client) {
+    ReplyToCommand(client, "%s%s", PREFIX, "Usage: sm_afkmanager_status <name|userid>");
+}
+
+void MessageReply_AfkStatus(int client, int target, int seconds) {
+    ReplyToCommand(client, "%s%t", PREFIX, "Afk status", target, seconds);
+}

@@ -7,6 +7,7 @@
 #include "afkm/use-case"
 
 #include "modules/client.sp"
+#include "modules/console-command.sp"
 #include "modules/console-variable.sp"
 #include "modules/message.sp"
 #include "modules/use-case.sp"
@@ -28,7 +29,9 @@ public void OnAllPluginsLoaded() {
 }
 
 public void OnPluginStart() {
+    Command_Create();
     Variable_Create();
+    LoadTranslations("common.phrases");
     LoadTranslations("afk-manager.phrases");
     // AutoExecConfig(true, "afk-manager");
 }

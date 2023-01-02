@@ -85,3 +85,9 @@ void UseCase_NotifyAboutInactivity(int client) {
         MessagePrint_YouAreInactivePlayer(client, moveSeconds);
     }
 }
+
+void UseCase_CheckAfkStatus(int client, int target) {
+    int seconds = Client_GetSeconds(target);
+
+    MessageReply_AfkStatus(client, target, seconds);
+}

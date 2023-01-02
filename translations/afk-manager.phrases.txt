@@ -27,4 +27,10 @@
     {
         "en"    "You are kicked for inactivity"
     }
+
+    "Afk status"
+    {
+        "#format"   "{1:N},{2:d}"
+        "en"    "Player {1} is idle for {2} sec."
+    }
 }
