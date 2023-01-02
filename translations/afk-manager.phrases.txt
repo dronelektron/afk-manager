@@ -1,0 +1,30 @@
+"Phrases"
+{
+    "You are active"
+    {
+        "en"    "You are no longer AFK"
+    }
+
+    "You are inactive player"
+    {
+        "#format"   "{1:d}"
+        "en"    "Start moving, otherwise after {1} sec. you will be moved to spectators"
+    }
+
+    "You are inactive spectator"
+    {
+        "#format"   "{1:d}"
+        "en"    "Return to the game, otherwise after {1} sec. you will be kicked"
+    }
+
+    "Player moved to spectators"
+    {
+        "#format"   "{1:N}"
+        "en"    "Player {1} moved to spectators for inactivity"
+    }
+
+    "You are kicked for inactivity"
+    {
+        "en"    "You are kicked for inactivity"
+    }
+}

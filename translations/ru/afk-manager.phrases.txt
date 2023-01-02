@@ -1,0 +1,27 @@
+"Phrases"
+{
+    "You are active"
+    {
+        "ru"    "Вы больше не АФК"
+    }
+
+    "You are inactive player"
+    {
+        "ru"    "Начните двигаться, иначе через {1} сек. вы будете перемещены в наблюдатели"
+    }
+
+    "You are inactive spectator"
+    {
+        "ru"    "Вернитесь в игру, иначе через {1} сек. вы будете кикнуты"
+    }
+
+    "Player moved to spectators"
+    {
+        "ru"    "Игрок {1} перемещен в наблюдатели за бездействие"
+    }
+
+    "You are kicked for inactivity"
+    {
+        "ru"    "Вы кикнуты за бездействие"
+    }
+}
