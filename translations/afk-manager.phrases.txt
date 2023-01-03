@@ -33,4 +33,10 @@
         "#format"   "{1:N},{2:d}"
         "en"    "Player {1} is idle for {2} sec."
     }
+
+    "Reset seconds"
+    {
+        "#format"   "{1:N}"
+        "en"    "Reset idle time for player {1}"
+    }
 }

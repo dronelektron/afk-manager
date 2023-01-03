@@ -32,3 +32,4 @@ Allows you to manage players who are inactive
 ### Console Commands
 
 * sm_afkmanager_status <#userid|name> - Check AFK status of the player
+* sm_afkmanager_reset_seconds <#userid|name> - Reset idle time for the player

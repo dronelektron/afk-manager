@@ -26,3 +26,12 @@ void MessageReply_AfkStatusUsage(int client) {
 void MessageReply_AfkStatus(int client, int target, int seconds) {
     ReplyToCommand(client, "%s%t", PREFIX, "Afk status", target, seconds);
 }
+
+void MessageReply_ResetSecondsUsage(int client) {
+    ReplyToCommand(client, "%s%s", PREFIX, "Usage: sm_afkmanager_reset_seconds <#userid|name>");
+}
+
+void Message_ResetSeconds(int client, int target) {
+    ShowActivity2(client, PREFIX, "%t", "Reset seconds", target);
+    LogMessage("\"%L\" reset seconds for \"%L\"", client, target);
+}

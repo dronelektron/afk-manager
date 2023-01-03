@@ -184,3 +184,8 @@ void UseCase_CheckAfkStatus(int client, int target) {
 
     MessageReply_AfkStatus(client, target, seconds);
 }
+
+void UseCase_ResetSeconds(int client, int target) {
+    Client_ResetSeconds(client);
+    Message_ResetSeconds(client, target);
+}
