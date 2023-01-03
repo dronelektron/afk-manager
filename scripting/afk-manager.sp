@@ -42,6 +42,7 @@ public void OnMapStart() {
 
 public void OnClientPostAdminCheck(int client) {
     Client_SetAsActive(client);
+    Client_ResetSeconds(client);
 }
 
 public void OnClientActive(int client) {

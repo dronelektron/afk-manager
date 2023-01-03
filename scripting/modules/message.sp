@@ -20,7 +20,7 @@ void MessageLog_ClientKicked(int client) {
 }
 
 void MessageReply_AfkStatusUsage(int client) {
-    ReplyToCommand(client, "%s%s", PREFIX, "Usage: sm_afkmanager_status <name|userid>");
+    ReplyToCommand(client, "%s%s", PREFIX, "Usage: sm_afkmanager_status <#userid|name>");
 }
 
 void MessageReply_AfkStatus(int client, int target, int seconds) {
