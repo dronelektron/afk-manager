@@ -33,7 +33,7 @@ public void OnPluginStart() {
     Variable_Create();
     LoadTranslations("common.phrases");
     LoadTranslations("afk-manager.phrases");
-    // AutoExecConfig(true, "afk-manager");
+    AutoExecConfig(true, "afk-manager");
 }
 
 public void OnMapStart() {
