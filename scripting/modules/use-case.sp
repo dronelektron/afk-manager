@@ -45,25 +45,24 @@ public Action UseCaseTimer_InactiveClients(Handle timer) {
 }
 
 void UseCase_ProcessInactiveClient(int client) {
-    if (!Client_IsNotified(client)) {
+    bool isNotified = Client_IsNotified(client);
+
+    if (IsClientObserver(client)) {
+        if (isNotified) {
+            UseCase_CheckKickSeconds(client);
+        } else {
+            UseCase_NotifyAboutKick(client);
+        }
+    } else {
+        if (isNotified) {
+            UseCase_CheckMoveSeconds(client);
+        } else {
+            UseCase_NotifyAboutMove(client);
+        }
+    }
+
+    if (!isNotified) {
         Client_SetNotified(client, NOTIFIED_YES);
-        UseCase_NotifyAboutInactivity(client);
-
-        return;
-    }
-
-    if (IsClientObserver(client)) {
-        UseCase_CheckKickSeconds(client);
-    } else {
-        UseCase_CheckMoveSeconds(client);
-    }
-}
-
-void UseCase_NotifyAboutInactivity(int client) {
-    if (IsClientObserver(client)) {
-        UseCase_NotifyAboutKick(client);
-    } else {
-        UseCase_NotifyAboutMove(client);
     }
 }
 
