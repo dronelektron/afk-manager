@@ -108,7 +108,7 @@ void UseCase_CheckKickSeconds(int client) {
     int clientKickSeconds = Client_GetKickSeconds(client);
     int kickSeconds = Variable_KickSeconds();
 
-    if (UseCase_IsRepeatNotification(clientKickSeconds)) {
+    if (UseCase_IsRepeatKickNotification(clientKickSeconds)) {
         UseCase_NotifyAboutKick(client, clientKickSeconds);
     }
 
@@ -132,7 +132,7 @@ void UseCase_CheckMoveSeconds(int client) {
     int clientMoveSeconds = Client_GetMoveSeconds(client);
     int moveSeconds = Variable_MoveSeconds();
 
-    if (UseCase_IsRepeatNotification(clientMoveSeconds)) {
+    if (UseCase_IsRepeatMoveNotification(clientMoveSeconds)) {
         UseCase_NotifyAboutMove(client, clientMoveSeconds);
     }
 
@@ -143,10 +143,20 @@ void UseCase_CheckMoveSeconds(int client) {
     }
 }
 
-bool UseCase_IsRepeatNotification(int seconds) {
-    int interval = Variable_NotificationInterval();
+bool UseCase_IsRepeatKickNotification(int seconds) {
+    int interval = Variable_KickNotificationInterval();
 
-    return interval == 0 ? false : (seconds % interval == 0)
+    return UseCase_IsRepeatNotification(interval, seconds);
+}
+
+bool UseCase_IsRepeatMoveNotification(int seconds) {
+    int interval = Variable_MoveNotificationInterval();
+
+    return UseCase_IsRepeatNotification(interval, seconds);
+}
+
+bool UseCase_IsRepeatNotification(int interval, int seconds) {
+    return interval == 0 ? false : (seconds % interval == 0);
 }
 
 bool UseCase_NotEnoughClientsForKick() {
