@@ -14,7 +14,9 @@ Allows you to manage players who are inactive
 ### Console Variables
 
 * sm_afkmanager_move_seconds - After how many seconds to move the player to spectators [default: "5"]
+* sm_afkmanager_move_min_players - Minimum number of players after which players will be moved to spectators [default: "1"]
 * sm_afkmanager_kick_seconds - After how many seconds to kick the player [default: "10"]
+* sm_afkmanager_kick_min_players - Minimum number of players after which players will be kicked [default: "1"]
 * sm_afkmanager_admin_immunity - Admin immunity [default: "0"]
 * sm_afkmanager_player_immunity - Player immunity [default: "0"]
 

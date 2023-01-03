@@ -68,6 +68,10 @@ void UseCase_NotifyAboutInactivity(int client) {
 }
 
 void UseCase_NotifyAboutKick(int client) {
+    if (UseCase_NotEnoughPlayersForKick()) {
+        return;
+    }
+
     if (UseCase_IsClientHaveImmunity(client, AFK_IMMUNITY_KICK)) {
         return;
     }
@@ -78,6 +82,10 @@ void UseCase_NotifyAboutKick(int client) {
 }
 
 void UseCase_NotifyAboutMove(int client) {
+    if (UseCase_NotEnoughPlayersForMove()) {
+        return;
+    }
+
     if (UseCase_IsClientHaveImmunity(client, AFK_IMMUNITY_MOVE)) {
         return;
     }
@@ -89,6 +97,10 @@ void UseCase_NotifyAboutMove(int client) {
 
 void UseCase_CheckKickSeconds(int client) {
     Client_AddKickSeconds(client);
+
+    if (UseCase_NotEnoughPlayersForKick()) {
+        return;
+    }
 
     if (UseCase_IsClientHaveImmunity(client, AFK_IMMUNITY_KICK)) {
         return;
@@ -106,6 +118,10 @@ void UseCase_CheckKickSeconds(int client) {
 void UseCase_CheckMoveSeconds(int client) {
     Client_AddMoveSeconds(client);
 
+    if (UseCase_NotEnoughPlayersForMove()) {
+        return;
+    }
+
     if (UseCase_IsClientHaveImmunity(client, AFK_IMMUNITY_MOVE)) {
         return;
     }
@@ -117,6 +133,14 @@ void UseCase_CheckMoveSeconds(int client) {
         ChangeClientTeam(client, TEAM_SPECTATOR);
         Message_PlayerMovedToSpectators(client);
     }
+}
+
+bool UseCase_NotEnoughPlayersForKick() {
+    return GetClientCount() < Variable_KickMinPlayers();
+}
+
+bool UseCase_NotEnoughPlayersForMove() {
+    return GetClientCount() < Variable_MoveMinPlayers();
 }
 
 bool UseCase_IsClientHaveImmunity(int client, int immunity) {
