@@ -67,7 +67,7 @@ void UseCase_ProcessInactiveClient(int client) {
 }
 
 void UseCase_NotifyAboutKick(int client) {
-    if (UseCase_NotEnoughPlayersForKick()) {
+    if (UseCase_NotEnoughClientsForKick()) {
         return;
     }
 
@@ -81,7 +81,7 @@ void UseCase_NotifyAboutKick(int client) {
 }
 
 void UseCase_NotifyAboutMove(int client) {
-    if (UseCase_NotEnoughPlayersForMove()) {
+    if (UseCase_NotEnoughClientsForMove()) {
         return;
     }
 
@@ -97,7 +97,7 @@ void UseCase_NotifyAboutMove(int client) {
 void UseCase_CheckKickSeconds(int client) {
     Client_AddKickSeconds(client);
 
-    if (UseCase_NotEnoughPlayersForKick()) {
+    if (UseCase_NotEnoughClientsForKick()) {
         return;
     }
 
@@ -117,7 +117,7 @@ void UseCase_CheckKickSeconds(int client) {
 void UseCase_CheckMoveSeconds(int client) {
     Client_AddMoveSeconds(client);
 
-    if (UseCase_NotEnoughPlayersForMove()) {
+    if (UseCase_NotEnoughClientsForMove()) {
         return;
     }
 
@@ -135,11 +135,11 @@ void UseCase_CheckMoveSeconds(int client) {
     }
 }
 
-bool UseCase_NotEnoughPlayersForKick() {
+bool UseCase_NotEnoughClientsForKick() {
     return GetClientCount() < Variable_KickMinPlayers();
 }
 
-bool UseCase_NotEnoughPlayersForMove() {
+bool UseCase_NotEnoughClientsForMove() {
     return GetClientCount() < Variable_MoveMinPlayers();
 }
 
