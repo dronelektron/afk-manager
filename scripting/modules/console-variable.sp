@@ -13,7 +13,7 @@ void Variable_Create() {
     g_kickMinPlayers = CreateConVar("sm_afkmanager_kick_min_players", "1", "Minimum number of players after which players will be kicked");
     g_adminImmunityMode = CreateConVar("sm_afkmanager_admin_immunity", "0", "Admin immunity (none - 0, move - 1, kick - 2, full - 3)");
     g_playerImmunityMode = CreateConVar("sm_afkmanager_player_immunity", "0", "Player immunity (none - 0, move - 1, kick - 2, full - 3)");
-    g_notificationInterval = CreateConVar("sm_afkmanager_notification_interval", "5", "How often (in seconds, disable - 0) to notify the player of inactivity");
+    g_notificationInterval = CreateConVar("sm_afkmanager_notification_interval", "5", "How often (in seconds, disable - 0) to notify the player about inactivity");
 }
 
 int Variable_MoveSeconds() {
