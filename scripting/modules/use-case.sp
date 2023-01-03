@@ -132,6 +132,7 @@ void UseCase_CheckMoveSeconds(int client) {
     if (clientMoveSeconds >= moveSeconds) {
         ChangeClientTeam(client, TEAM_SPECTATOR);
         Message_PlayerMovedToSpectators(client);
+        UseCase_NotifyAboutKick(client);
     }
 }
 
