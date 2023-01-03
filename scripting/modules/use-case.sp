@@ -66,7 +66,7 @@ void UseCase_ProcessInactiveClient(int client) {
     }
 }
 
-void UseCase_NotifyAboutKick(int client) {
+void UseCase_NotifyAboutKick(int client, int clientKickSeconds = 0) {
     if (UseCase_NotEnoughClientsForKick()) {
         return;
     }
@@ -75,12 +75,12 @@ void UseCase_NotifyAboutKick(int client) {
         return;
     }
 
-    int kickSeconds = Variable_KickSeconds();
+    int kickSeconds = Variable_KickSeconds() - clientKickSeconds;
 
     MessagePrint_YouAreInactiveSpectator(client, kickSeconds);
 }
 
-void UseCase_NotifyAboutMove(int client) {
+void UseCase_NotifyAboutMove(int client, int clientMoveSeconds = 0) {
     if (UseCase_NotEnoughClientsForMove()) {
         return;
     }
@@ -89,7 +89,7 @@ void UseCase_NotifyAboutMove(int client) {
         return;
     }
 
-    int moveSeconds = Variable_MoveSeconds();
+    int moveSeconds = Variable_MoveSeconds() - clientMoveSeconds;
 
     MessagePrint_YouAreInactivePlayer(client, moveSeconds);
 }
@@ -107,6 +107,10 @@ void UseCase_CheckKickSeconds(int client) {
 
     int clientKickSeconds = Client_GetKickSeconds(client);
     int kickSeconds = Variable_KickSeconds();
+
+    if (UseCase_IsRepeatNotification(clientKickSeconds)) {
+        UseCase_NotifyAboutKick(client, clientKickSeconds);
+    }
 
     if (clientKickSeconds >= kickSeconds) {
         KickClient(client, "%t", "You are kicked for inactivity");
@@ -128,11 +132,21 @@ void UseCase_CheckMoveSeconds(int client) {
     int clientMoveSeconds = Client_GetMoveSeconds(client);
     int moveSeconds = Variable_MoveSeconds();
 
+    if (UseCase_IsRepeatNotification(clientMoveSeconds)) {
+        UseCase_NotifyAboutMove(client, clientMoveSeconds);
+    }
+
     if (clientMoveSeconds >= moveSeconds) {
         ChangeClientTeam(client, TEAM_SPECTATOR);
         Message_PlayerMovedToSpectators(client);
         UseCase_NotifyAboutKick(client);
     }
+}
+
+bool UseCase_IsRepeatNotification(int seconds) {
+    int interval = Variable_NotificationInterval();
+
+    return interval == 0 ? false : (seconds % interval == 0)
 }
 
 bool UseCase_NotEnoughClientsForKick() {
