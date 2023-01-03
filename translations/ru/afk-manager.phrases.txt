@@ -1,0 +1,37 @@
+"Phrases"
+{
+    "You are active"
+    {
+        "ru"    "Вы больше не АФК"
+    }
+
+    "You are inactive player"
+    {
+        "ru"    "Начните двигаться, иначе через {aqua}{1}{default} сек. вы будете перемещены в наблюдатели"
+    }
+
+    "You are inactive spectator"
+    {
+        "ru"    "Вернитесь в игру, иначе через {aqua}{1}{default} сек. вы будете кикнуты"
+    }
+
+    "Player moved to spectators"
+    {
+        "ru"    "Игрок {aqua}{1}{default} перемещен в наблюдатели за бездействие"
+    }
+
+    "You are kicked for inactivity"
+    {
+        "ru"    "Вы кикнуты за бездействие"
+    }
+
+    "Afk status"
+    {
+        "ru"    "Игрок {1} бездействует {2} сек."
+    }
+
+    "Reset seconds"
+    {
+        "ru"    "Сброшено время бездействия для игрока {1}"
+    }
+}
