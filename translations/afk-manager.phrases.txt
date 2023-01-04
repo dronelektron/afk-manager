@@ -1,21 +1,26 @@
 "Phrases"
 {
+    "Prefix colored"
+    {
+        "en"    "{blue}[AFK manager]{default} "
+    }
+
     "You are inactive player"
     {
         "#format"   "{1:d}"
-        "en"    "Start moving, otherwise after {aqua}{1}{default} sec. you will be moved to spectators"
+        "en"    "Start moving, otherwise after {wheat}{1}{default} sec. you will be moved to spectators"
     }
 
     "You are inactive spectator"
     {
         "#format"   "{1:d}"
-        "en"    "Return to the game, otherwise after {aqua}{1}{default} sec. you will be kicked"
+        "en"    "Return to the game, otherwise after {wheat}{1}{default} sec. you will be kicked"
     }
 
     "Player moved to spectators"
     {
         "#format"   "{1:N}"
-        "en"    "Player {aqua}{1}{default} moved to spectators for inactivity"
+        "en"    "Player {wheat}{1}{default} moved to spectators for inactivity"
     }
 
     "You are kicked for inactivity"

@@ -2,17 +2,17 @@
 {
     "You are inactive player"
     {
-        "ru"    "Начните двигаться, иначе через {aqua}{1}{default} сек. вы будете перемещены в наблюдатели"
+        "ru"    "Начните двигаться, иначе через {wheat}{1}{default} сек. вы будете перемещены в наблюдатели"
     }
 
     "You are inactive spectator"
     {
-        "ru"    "Вернитесь в игру, иначе через {aqua}{1}{default} сек. вы будете кикнуты"
+        "ru"    "Вернитесь в игру, иначе через {wheat}{1}{default} сек. вы будете кикнуты"
     }
 
     "Player moved to spectators"
     {
-        "ru"    "Игрок {aqua}{1}{default} перемещен в наблюдатели за бездействие"
+        "ru"    "Игрок {wheat}{1}{default} перемещен в наблюдатели за бездействие"
     }
 
     "You are kicked for inactivity"

@@ -1,13 +1,13 @@
 void MessagePrint_YouAreInactivePlayer(int client, int seconds) {
-    CPrintToChat(client, "%s%t", PREFIX_COLORED, "You are inactive player", seconds);
+    CPrintToChat(client, "%t%t", PREFIX_COLORED, "You are inactive player", seconds);
 }
 
 void MessagePrint_YouAreInactiveSpectator(int client, int seconds) {
-    CPrintToChat(client, "%s%t", PREFIX_COLORED, "You are inactive spectator", seconds);
+    CPrintToChat(client, "%t%t", PREFIX_COLORED, "You are inactive spectator", seconds);
 }
 
 void Message_PlayerMovedToSpectators(int client) {
-    CPrintToChatAll("%s%t", PREFIX_COLORED, "Player moved to spectators", client);
+    CPrintToChatAll("%t%t", PREFIX_COLORED, "Player moved to spectators", client);
     LogMessage("\"%L\" moved to spectators for inactivity", client);
 }
 

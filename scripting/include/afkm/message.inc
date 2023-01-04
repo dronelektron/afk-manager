@@ -4,4 +4,4 @@
 #define _afkm_message_included
 
 #define PREFIX "[AFK manager] "
-#define PREFIX_COLORED "{arcana}[AFK manager]{default} "
+#define PREFIX_COLORED "Prefix colored"
