@@ -1,11 +1,11 @@
 "Phrases"
 {
-    "You are inactive player"
+    "Inactive player"
     {
         "ru"    "Начните двигаться, иначе через {wheat}{1}{default} сек. вы будете перемещены в наблюдатели"
     }
 
-    "You are inactive spectator"
+    "Inactive spectator"
     {
         "ru"    "Вернитесь в игру, иначе через {wheat}{1}{default} сек. вы будете кикнуты"
     }

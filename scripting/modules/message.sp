@@ -1,9 +1,9 @@
-void Message_YouAreInactivePlayer(int client, int seconds) {
-    CPrintToChat(client, "%t%t", PREFIX_COLORED, "You are inactive player", seconds);
+void Message_InactivePlayer(int client, int seconds) {
+    CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive player", seconds);
 }
 
-void Message_YouAreInactiveSpectator(int client, int seconds) {
-    CPrintToChat(client, "%t%t", PREFIX_COLORED, "You are inactive spectator", seconds);
+void Message_InactiveSpectator(int client, int seconds) {
+    CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive spectator", seconds);
 }
 
 void Message_PlayerMovedToSpectators(int client) {

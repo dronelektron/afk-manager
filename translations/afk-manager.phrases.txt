@@ -5,13 +5,13 @@
         "en"    "{blue}[AFK manager]{default} "
     }
 
-    "You are inactive player"
+    "Inactive player"
     {
         "#format"   "{1:d}"
         "en"    "Start moving, otherwise after {wheat}{1}{default} sec. you will be moved to spectators"
     }
 
-    "You are inactive spectator"
+    "Inactive spectator"
     {
         "#format"   "{1:d}"
         "en"    "Return to the game, otherwise after {wheat}{1}{default} sec. you will be kicked"

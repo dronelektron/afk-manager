@@ -74,7 +74,7 @@ void UseCase_NotifyAboutKick(int client, int clientKickSeconds = 0) {
 
     int kickSeconds = Variable_KickSeconds() - clientKickSeconds;
 
-    Message_YouAreInactiveSpectator(client, kickSeconds);
+    Message_InactiveSpectator(client, kickSeconds);
 }
 
 void UseCase_NotifyAboutMove(int client, int clientMoveSeconds = 0) {
@@ -88,7 +88,7 @@ void UseCase_NotifyAboutMove(int client, int clientMoveSeconds = 0) {
 
     int moveSeconds = Variable_MoveSeconds() - clientMoveSeconds;
 
-    Message_YouAreInactivePlayer(client, moveSeconds);
+    Message_InactivePlayer(client, moveSeconds);
 }
 
 void UseCase_CheckKickSeconds(int client) {
