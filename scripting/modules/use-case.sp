@@ -7,7 +7,6 @@ void UseCase_ResetAfkTimer() {
 void UseCase_OnClientActive(int client) {
     Client_SetAsActive(client);
     Client_ResetSeconds(client);
-    MessagePrint_YouAreActive(client);
 }
 
 void UseCase_OnClientInactive(int client) {
@@ -47,6 +46,8 @@ public Action UseCaseTimer_InactiveClients(Handle timer) {
 void UseCase_ProcessInactiveClient(int client) {
     bool isNotified = Client_IsNotified(client);
 
+    Client_SetNotified(client, NOTIFIED_YES);
+
     if (IsClientObserver(client)) {
         if (isNotified) {
             UseCase_CheckKickSeconds(client);
@@ -59,10 +60,6 @@ void UseCase_ProcessInactiveClient(int client) {
         } else {
             UseCase_NotifyAboutMove(client);
         }
-    }
-
-    if (!isNotified) {
-        Client_SetNotified(client, NOTIFIED_YES);
     }
 }
 
@@ -108,13 +105,11 @@ void UseCase_CheckKickSeconds(int client) {
     int clientKickSeconds = Client_GetKickSeconds(client);
     int kickSeconds = Variable_KickSeconds();
 
-    if (UseCase_IsRepeatKickNotification(clientKickSeconds)) {
-        UseCase_NotifyAboutKick(client, clientKickSeconds);
-    }
-
     if (clientKickSeconds >= kickSeconds) {
         KickClient(client, "%t", "You are kicked for inactivity");
         MessageLog_ClientKicked(client);
+    } else if (UseCase_IsRepeatKickNotification(clientKickSeconds)) {
+        UseCase_NotifyAboutKick(client, clientKickSeconds);
     }
 }
 
@@ -132,14 +127,12 @@ void UseCase_CheckMoveSeconds(int client) {
     int clientMoveSeconds = Client_GetMoveSeconds(client);
     int moveSeconds = Variable_MoveSeconds();
 
-    if (UseCase_IsRepeatMoveNotification(clientMoveSeconds)) {
-        UseCase_NotifyAboutMove(client, clientMoveSeconds);
-    }
-
     if (clientMoveSeconds >= moveSeconds) {
         ChangeClientTeam(client, TEAM_SPECTATOR);
         Message_PlayerMovedToSpectators(client);
         UseCase_NotifyAboutKick(client);
+    } else if (UseCase_IsRepeatMoveNotification(clientMoveSeconds)) {
+        UseCase_NotifyAboutMove(client, clientMoveSeconds);
     }
 }
 
