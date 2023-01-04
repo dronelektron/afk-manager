@@ -107,13 +107,11 @@ void UseCase_CheckKickSeconds(int client) {
     int clientKickSeconds = Client_GetKickSeconds(client);
     int kickSeconds = Variable_KickSeconds();
 
-    if (UseCase_IsRepeatKickNotification(clientKickSeconds)) {
-        UseCase_NotifyAboutKick(client, clientKickSeconds);
-    }
-
     if (clientKickSeconds >= kickSeconds) {
         KickClient(client, "%t", "You are kicked for inactivity");
         MessageLog_ClientKicked(client);
+    } else if (UseCase_IsRepeatKickNotification(clientKickSeconds)) {
+        UseCase_NotifyAboutKick(client, clientKickSeconds);
     }
 }
 
@@ -131,14 +129,12 @@ void UseCase_CheckMoveSeconds(int client) {
     int clientMoveSeconds = Client_GetMoveSeconds(client);
     int moveSeconds = Variable_MoveSeconds();
 
-    if (UseCase_IsRepeatMoveNotification(clientMoveSeconds)) {
-        UseCase_NotifyAboutMove(client, clientMoveSeconds);
-    }
-
     if (clientMoveSeconds >= moveSeconds) {
         ChangeClientTeam(client, TEAM_SPECTATOR);
         Message_PlayerMovedToSpectators(client);
         UseCase_NotifyAboutKick(client);
+    } else if (UseCase_IsRepeatMoveNotification(clientMoveSeconds)) {
+        UseCase_NotifyAboutMove(client, clientMoveSeconds);
     }
 }
 
