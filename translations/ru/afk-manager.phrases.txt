@@ -1,10 +1,5 @@
 "Phrases"
 {
-    "You are active"
-    {
-        "ru"    "Вы больше не АФК"
-    }
-
     "You are inactive player"
     {
         "ru"    "Начните двигаться, иначе через {aqua}{1}{default} сек. вы будете перемещены в наблюдатели"

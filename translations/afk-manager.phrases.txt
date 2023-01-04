@@ -1,10 +1,5 @@
 "Phrases"
 {
-    "You are active"
-    {
-        "en"    "You are no longer AFK"
-    }
-
     "You are inactive player"
     {
         "#format"   "{1:d}"

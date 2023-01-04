@@ -7,7 +7,6 @@ void UseCase_ResetAfkTimer() {
 void UseCase_OnClientActive(int client) {
     Client_SetAsActive(client);
     Client_ResetSeconds(client);
-    MessagePrint_YouAreActive(client);
 }
 
 void UseCase_OnClientInactive(int client) {

@@ -1,7 +1,3 @@
-void MessagePrint_YouAreActive(int client) {
-    CPrintToChat(client, "%s%t", PREFIX_COLORED, "You are active");
-}
-
 void MessagePrint_YouAreInactivePlayer(int client, int seconds) {
     CPrintToChat(client, "%s%t", PREFIX_COLORED, "You are inactive player", seconds);
 }
