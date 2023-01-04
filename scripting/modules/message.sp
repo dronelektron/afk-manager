@@ -1,29 +1,37 @@
-void MessagePrint_YouAreInactivePlayer(int client, int seconds) {
-    CPrintToChat(client, "%t%t", PREFIX_COLORED, "You are inactive player", seconds);
+void Message_InactivePlayer(int client, int seconds) {
+    if (seconds < 60) {
+        CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive player", "seconds", seconds);
+    } else {
+        CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive player", "minutes seconds", seconds / 60, seconds % 60);
+    }
 }
 
-void MessagePrint_YouAreInactiveSpectator(int client, int seconds) {
-    CPrintToChat(client, "%t%t", PREFIX_COLORED, "You are inactive spectator", seconds);
+void Message_InactiveSpectator(int client, int seconds) {
+    if (seconds < 60) {
+        CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive spectator", "seconds", seconds);
+    } else {
+        CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive spectator", "minutes seconds", seconds / 60, seconds % 60);
+    }
 }
 
 void Message_PlayerMovedToSpectators(int client) {
     CPrintToChatAll("%t%t", PREFIX_COLORED, "Player moved to spectators", client);
-    LogMessage("\"%L\" moved to spectators for inactivity", client);
+    LogMessage("\"%L\" moved to spectators", client);
 }
 
-void MessageLog_ClientKicked(int client) {
-    LogMessage("\"%L\" kicked for inactivity", client);
+void Message_ClientKicked(int client) {
+    LogMessage("\"%L\" kicked", client);
 }
 
-void MessageReply_AfkStatusUsage(int client) {
+void Message_AfkStatusUsage(int client) {
     ReplyToCommand(client, "%s%s", PREFIX, "Usage: sm_afkmanager_status <#userid|name>");
 }
 
-void MessageReply_AfkStatus(int client, int target, int seconds) {
+void Message_AfkStatus(int client, int target, int seconds) {
     ReplyToCommand(client, "%s%t", PREFIX, "Afk status", target, seconds);
 }
 
-void MessageReply_ResetSecondsUsage(int client) {
+void Message_ResetSecondsUsage(int client) {
     ReplyToCommand(client, "%s%s", PREFIX, "Usage: sm_afkmanager_reset_seconds <#userid|name>");
 }
 

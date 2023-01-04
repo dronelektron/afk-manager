@@ -5,16 +5,16 @@
         "en"    "{blue}[AFK manager]{default} "
     }
 
-    "You are inactive player"
+    "Inactive player"
     {
-        "#format"   "{1:d}"
-        "en"    "Start moving, otherwise after {wheat}{1}{default} sec. you will be moved to spectators"
+        "#format"   "{1:t}"
+        "en"    "Start moving, otherwise after {1} you will be moved to spectators"
     }
 
-    "You are inactive spectator"
+    "Inactive spectator"
     {
-        "#format"   "{1:d}"
-        "en"    "Return to the game, otherwise after {wheat}{1}{default} sec. you will be kicked"
+        "#format"   "{1:t}"
+        "en"    "Return to the game, otherwise after {1} you will be kicked"
     }
 
     "Player moved to spectators"
@@ -38,5 +38,17 @@
     {
         "#format"   "{1:N}"
         "en"    "Reset idle time for player {1}"
+    }
+
+    "seconds"
+    {
+        "#format"   "{1:d}"
+        "en"    "{wheat}{1}{default} sec."
+    }
+
+    "minutes seconds"
+    {
+        "#format"   "{1:d},{2:d}"
+        "en"    "{wheat}{1}{default} min. and {wheat}{2}{default} sec."
     }
 }

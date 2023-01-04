@@ -74,7 +74,7 @@ void UseCase_NotifyAboutKick(int client, int clientKickSeconds = 0) {
 
     int kickSeconds = Variable_KickSeconds() - clientKickSeconds;
 
-    MessagePrint_YouAreInactiveSpectator(client, kickSeconds);
+    Message_InactiveSpectator(client, kickSeconds);
 }
 
 void UseCase_NotifyAboutMove(int client, int clientMoveSeconds = 0) {
@@ -88,7 +88,7 @@ void UseCase_NotifyAboutMove(int client, int clientMoveSeconds = 0) {
 
     int moveSeconds = Variable_MoveSeconds() - clientMoveSeconds;
 
-    MessagePrint_YouAreInactivePlayer(client, moveSeconds);
+    Message_InactivePlayer(client, moveSeconds);
 }
 
 void UseCase_CheckKickSeconds(int client) {
@@ -107,7 +107,7 @@ void UseCase_CheckKickSeconds(int client) {
 
     if (clientKickSeconds >= kickSeconds) {
         KickClient(client, "%t", "You are kicked for inactivity");
-        MessageLog_ClientKicked(client);
+        Message_ClientKicked(client);
     } else if (UseCase_IsRepeatKickNotification(clientKickSeconds)) {
         UseCase_NotifyAboutKick(client, clientKickSeconds);
     }
@@ -185,7 +185,7 @@ bool UseCase_IsAdmin(int client) {
 void UseCase_CheckAfkStatus(int client, int target) {
     int seconds = Client_GetKickSeconds(target) + Client_GetMoveSeconds(client);
 
-    MessageReply_AfkStatus(client, target, seconds);
+    Message_AfkStatus(client, target, seconds);
 }
 
 void UseCase_ResetSeconds(int client, int target) {
