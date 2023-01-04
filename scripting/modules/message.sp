@@ -1,9 +1,17 @@
 void Message_InactivePlayer(int client, int seconds) {
-    CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive player", seconds);
+    if (seconds < 60) {
+        CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive player", "seconds", seconds);
+    } else {
+        CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive player", "minutes seconds", seconds / 60, seconds % 60);
+    }
 }
 
 void Message_InactiveSpectator(int client, int seconds) {
-    CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive spectator", seconds);
+    if (seconds < 60) {
+        CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive spectator", "seconds", seconds);
+    } else {
+        CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive spectator", "minutes seconds", seconds / 60, seconds % 60);
+    }
 }
 
 void Message_PlayerMovedToSpectators(int client) {
