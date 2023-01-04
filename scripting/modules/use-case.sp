@@ -46,6 +46,8 @@ public Action UseCaseTimer_InactiveClients(Handle timer) {
 void UseCase_ProcessInactiveClient(int client) {
     bool isNotified = Client_IsNotified(client);
 
+    Client_SetNotified(client, NOTIFIED_YES);
+
     if (IsClientObserver(client)) {
         if (isNotified) {
             UseCase_CheckKickSeconds(client);
@@ -58,10 +60,6 @@ void UseCase_ProcessInactiveClient(int client) {
         } else {
             UseCase_NotifyAboutMove(client);
         }
-    }
-
-    if (!isNotified) {
-        Client_SetNotified(client, NOTIFIED_YES);
     }
 }
 
