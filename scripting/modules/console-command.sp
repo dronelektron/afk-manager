@@ -5,7 +5,7 @@ void Command_Create() {
 
 public Action Command_Status(int client, int args) {
     if (args < 1) {
-        MessageReply_AfkStatusUsage(client);
+        Message_AfkStatusUsage(client);
 
         return Plugin_Handled;
     }
@@ -25,7 +25,7 @@ public Action Command_Status(int client, int args) {
 
 public Action Command_ResetSeconds(int client, int args) {
     if (args < 1) {
-        MessageReply_ResetSecondsUsage(client);
+        Message_ResetSecondsUsage(client);
 
         return Plugin_Handled;
     }
