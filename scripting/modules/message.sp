@@ -8,11 +8,11 @@ void MessagePrint_YouAreInactiveSpectator(int client, int seconds) {
 
 void Message_PlayerMovedToSpectators(int client) {
     CPrintToChatAll("%t%t", PREFIX_COLORED, "Player moved to spectators", client);
-    LogMessage("\"%L\" moved to spectators for inactivity", client);
+    LogMessage("\"%L\" moved to spectators", client);
 }
 
 void MessageLog_ClientKicked(int client) {
-    LogMessage("\"%L\" kicked for inactivity", client);
+    LogMessage("\"%L\" kicked", client);
 }
 
 void MessageReply_AfkStatusUsage(int client) {
