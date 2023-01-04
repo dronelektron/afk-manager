@@ -12,7 +12,7 @@
 
     "Player moved to spectators"
     {
-        "ru"    "Игрок {wheat}{1}{default} перемещен в наблюдатели за бездействие"
+        "ru"    "Игрок {wheat}{1}{default} перемещен в наблюдатели"
     }
 
     "You are kicked for inactivity"

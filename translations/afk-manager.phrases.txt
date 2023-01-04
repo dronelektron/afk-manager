@@ -20,7 +20,7 @@
     "Player moved to spectators"
     {
         "#format"   "{1:N}"
-        "en"    "Player {wheat}{1}{default} moved to spectators for inactivity"
+        "en"    "Player {wheat}{1}{default} moved to spectators"
     }
 
     "You are kicked for inactivity"
