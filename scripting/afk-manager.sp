@@ -2,6 +2,7 @@
 
 #include "morecolors"
 
+#include "afk-detector"
 #include "afkm/message"
 #include "afkm/use-case"
 
@@ -40,7 +41,6 @@ public void OnMapStart() {
 }
 
 public void OnClientPostAdminCheck(int client) {
-    Client_SetAsActive(client);
     Client_ResetSeconds(client);
 }
 
