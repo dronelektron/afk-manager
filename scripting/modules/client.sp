@@ -1,7 +1,6 @@
 static bool g_isActive[MAXPLAYERS + 1];
 static int g_kickSeconds[MAXPLAYERS + 1];
 static int g_moveSeconds[MAXPLAYERS + 1];
-static bool g_isNotified[MAXPLAYERS + 1];
 
 bool Client_IsActive(int client) {
     return g_isActive[client];
@@ -34,12 +33,4 @@ int Client_GetMoveSeconds(int client) {
 
 void Client_AddMoveSeconds(int client) {
     g_moveSeconds[client]++;
-}
-
-bool Client_IsNotified(int client) {
-    return g_isNotified[client];
-}
-
-void Client_SetNotified(int client, bool isNotified) {
-    g_isNotified[client] = isNotified;
 }

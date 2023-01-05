@@ -11,8 +11,13 @@ void UseCase_OnClientActive(int client) {
 
 void UseCase_OnClientInactive(int client) {
     Client_SetAsInactive(client);
-    Client_SetNotified(client, NOTIFIED_NO);
     UseCase_CreateAfkTimer();
+
+    if (UseCase_IsSpectator(client)) {
+        UseCase_NotifyAboutKick(client);
+    } else {
+        UseCase_NotifyAboutMove(client);
+    }
 }
 
 void UseCase_CreateAfkTimer() {
@@ -31,7 +36,11 @@ public Action UseCaseTimer_InactiveClients(Handle timer) {
 
         inactiveClientsAmount++;
 
-        UseCase_ProcessInactiveClient(client);
+        if (UseCase_IsSpectator(client)) {
+            UseCase_CheckKickSeconds(client);
+        } else {
+            UseCase_CheckMoveSeconds(client);
+        }
     }
 
     if (inactiveClientsAmount == 0) {
@@ -41,26 +50,6 @@ public Action UseCaseTimer_InactiveClients(Handle timer) {
     }
 
     return Plugin_Continue;
-}
-
-void UseCase_ProcessInactiveClient(int client) {
-    bool isNotified = Client_IsNotified(client);
-
-    Client_SetNotified(client, NOTIFIED_YES);
-
-    if (IsClientObserver(client)) {
-        if (isNotified) {
-            UseCase_CheckKickSeconds(client);
-        } else {
-            UseCase_NotifyAboutKick(client);
-        }
-    } else {
-        if (isNotified) {
-            UseCase_CheckMoveSeconds(client);
-        } else {
-            UseCase_NotifyAboutMove(client);
-        }
-    }
 }
 
 void UseCase_NotifyAboutKick(int client, int clientKickSeconds = 0) {
@@ -180,6 +169,10 @@ bool UseCase_IsAdmin(int client) {
     AdminId id = GetUserAdmin(client);
 
     return id != INVALID_ADMIN_ID && GetAdminFlag(id, Admin_Generic, Access_Effective);
+}
+
+bool UseCase_IsSpectator(int client) {
+    return GetClientTeam(client) == TEAM_SPECTATOR;
 }
 
 void UseCase_CheckAfkStatus(int client, int target) {
