@@ -15,6 +15,11 @@
         "ru"    "Игрок {wheat}{1}{default} перемещен в наблюдатели"
     }
 
+    "Player kicked"
+    {
+        "ru"    "Игрок {wheat}{1}{default} кикнут"
+    }
+
     "You are kicked for inactivity"
     {
         "ru"    "Вы кикнуты за бездействие"

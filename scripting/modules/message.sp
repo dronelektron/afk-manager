@@ -36,6 +36,7 @@ void Message_PlayerMovedToSpectators(int client) {
 }
 
 void Message_ClientKicked(int client) {
+    CPrintToChatAll("%t%t", PREFIX_COLORED, "Player kicked", client);
     LogMessage("\"%L\" kicked", client);
 }
 
