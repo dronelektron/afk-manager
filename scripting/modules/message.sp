@@ -1,16 +1,32 @@
 void Message_InactivePlayer(int client, int seconds) {
     if (seconds < 60) {
-        CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive player", "seconds", seconds);
+        CPrintToChat(client, "%t%t", PREFIX_COLORED, INACTIVE_PLAYER, SECONDS, seconds);
     } else {
-        CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive player", "minutes seconds", seconds / 60, seconds % 60);
+        int minutes = seconds / 60;
+
+        seconds %= 60;
+
+        if (seconds == 0) {
+            CPrintToChat(client, "%t%t", PREFIX_COLORED, INACTIVE_PLAYER, MINUTES, minutes);
+        } else {
+            CPrintToChat(client, "%t%t", PREFIX_COLORED, INACTIVE_PLAYER, MINUTES_SECONDS, minutes, seconds);
+        }
     }
 }
 
 void Message_InactiveSpectator(int client, int seconds) {
     if (seconds < 60) {
-        CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive spectator", "seconds", seconds);
+        CPrintToChat(client, "%t%t", PREFIX_COLORED, INACTIVE_SPECTATOR, SECONDS, seconds);
     } else {
-        CPrintToChat(client, "%t%t", PREFIX_COLORED, "Inactive spectator", "minutes seconds", seconds / 60, seconds % 60);
+        int minutes = seconds / 60;
+
+        seconds %= 60;
+
+        if (seconds == 0) {
+            CPrintToChat(client, "%t%t", PREFIX_COLORED, INACTIVE_SPECTATOR, MINUTES, minutes);
+        } else {
+            CPrintToChat(client, "%t%t", PREFIX_COLORED, INACTIVE_SPECTATOR, MINUTES_SECONDS, minutes, seconds);
+        }
     }
 }
 

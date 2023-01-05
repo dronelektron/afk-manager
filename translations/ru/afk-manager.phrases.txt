@@ -35,6 +35,11 @@
         "ru"    "{wheat}{1}{default} сек."
     }
 
+    "minutes"
+    {
+        "ru"    "{wheat}{1}{default} мин."
+    }
+
     "minutes seconds"
     {
         "ru"    "{wheat}{1}{default} мин. и {wheat}{2}{default} сек."

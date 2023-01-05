@@ -46,6 +46,12 @@
         "en"    "{wheat}{1}{default} sec."
     }
 
+    "minutes"
+    {
+        "#format"   "{1:d}"
+        "en"    "{wheat}{1}{default} min."
+    }
+
     "minutes seconds"
     {
         "#format"   "{1:d},{2:d}"
