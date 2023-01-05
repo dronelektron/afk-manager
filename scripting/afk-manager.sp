@@ -2,6 +2,7 @@
 
 #include "morecolors"
 
+#include "afk-detector"
 #include "afkm/message"
 #include "afkm/use-case"
 
@@ -17,7 +18,7 @@ public Plugin myinfo = {
     name = "AFK manager",
     author = "Dron-elektron",
     description = "Allows you to manage players who are inactive",
-    version = "1.3.0",
+    version = "1.3.1",
     url = "https://github.com/dronelektron/afk-manager"
 };
 
@@ -40,7 +41,6 @@ public void OnMapStart() {
 }
 
 public void OnClientPostAdminCheck(int client) {
-    Client_SetAsActive(client);
     Client_ResetSeconds(client);
 }
 

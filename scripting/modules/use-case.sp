@@ -5,12 +5,10 @@ void UseCase_ResetAfkTimer() {
 }
 
 void UseCase_OnClientActive(int client) {
-    Client_SetAsActive(client);
     Client_ResetSeconds(client);
 }
 
 void UseCase_OnClientInactive(int client) {
-    Client_SetAsInactive(client);
     UseCase_CreateAfkTimer();
 
     if (UseCase_IsSpectator(client)) {
@@ -30,7 +28,7 @@ public Action UseCaseTimer_InactiveClients(Handle timer) {
     int inactiveClientsAmount = 0;
 
     for (int client = 1; client <= MaxClients; client++) {
-        if (!IsClientInGame(client) || Client_IsActive(client)) {
+        if (!IsClientInGame(client) || AfkDetector_IsClientActive(client)) {
             continue;
         }
 
