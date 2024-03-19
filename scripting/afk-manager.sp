@@ -2,9 +2,9 @@
 
 #include "morecolors"
 
-#include "afk-detector"
-#include "afkm/message"
-#include "afkm/use-case"
+#include "afk-detector/api"
+#include "afk-manager/message"
+#include "afk-manager/use-case"
 
 #include "modules/client.sp"
 #include "modules/console-command.sp"
@@ -12,28 +12,22 @@
 #include "modules/message.sp"
 #include "modules/use-case.sp"
 
-#define AFK_DETECTOR "afk-detector"
+#define AUTO_CREATE_YES true
 
 public Plugin myinfo = {
     name = "AFK manager",
     author = "Dron-elektron",
     description = "Allows you to manage players who are inactive",
-    version = "1.3.1",
+    version = "2.0.0",
     url = "https://github.com/dronelektron/afk-manager"
 };
-
-public void OnAllPluginsLoaded() {
-    if (!LibraryExists(AFK_DETECTOR)) {
-        SetFailState("Library '%s' is not found", AFK_DETECTOR);
-    }
-}
 
 public void OnPluginStart() {
     Command_Create();
     Variable_Create();
     LoadTranslations("common.phrases");
     LoadTranslations("afk-manager.phrases");
-    AutoExecConfig(true, "afk-manager");
+    AutoExecConfig(AUTO_CREATE_YES, "afk-manager");
 }
 
 public void OnMapStart() {
@@ -44,10 +38,10 @@ public void OnClientPostAdminCheck(int client) {
     Client_ResetSeconds(client);
 }
 
-public void OnClientActive(int client) {
+public void AfkDetector_OnClientActive(int client) {
     UseCase_OnClientActive(client);
 }
 
-public void OnClientInactive(int client) {
+public void AfkDetector_OnClientInactive(int client) {
     UseCase_OnClientInactive(client);
 }
