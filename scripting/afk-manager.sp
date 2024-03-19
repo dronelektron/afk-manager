@@ -2,7 +2,7 @@
 
 #include "morecolors"
 
-#include "afk-detector"
+#include "afk-detector/api"
 #include "afkm/message"
 #include "afkm/use-case"
 
@@ -12,7 +12,7 @@
 #include "modules/message.sp"
 #include "modules/use-case.sp"
 
-#define AFK_DETECTOR "afk-detector"
+#define AUTO_CREATE_YES true
 
 public Plugin myinfo = {
     name = "AFK manager",
@@ -22,18 +22,12 @@ public Plugin myinfo = {
     url = "https://github.com/dronelektron/afk-manager"
 };
 
-public void OnAllPluginsLoaded() {
-    if (!LibraryExists(AFK_DETECTOR)) {
-        SetFailState("Library '%s' is not found", AFK_DETECTOR);
-    }
-}
-
 public void OnPluginStart() {
     Command_Create();
     Variable_Create();
     LoadTranslations("common.phrases");
     LoadTranslations("afk-manager.phrases");
-    AutoExecConfig(true, "afk-manager");
+    AutoExecConfig(AUTO_CREATE_YES, "afk-manager");
 }
 
 public void OnMapStart() {
@@ -44,10 +38,10 @@ public void OnClientPostAdminCheck(int client) {
     Client_ResetSeconds(client);
 }
 
-public void OnClientActive(int client) {
+public void AfkDetector_OnClientActive(int client) {
     UseCase_OnClientActive(client);
 }
 
-public void OnClientInactive(int client) {
+public void AfkDetector_OnClientInactive(int client) {
     UseCase_OnClientInactive(client);
 }
