@@ -3,8 +3,8 @@
 #include "morecolors"
 
 #include "afk-detector/api"
-#include "afkm/message"
-#include "afkm/use-case"
+#include "afk-manager/message"
+#include "afk-manager/use-case"
 
 #include "modules/client.sp"
 #include "modules/console-command.sp"

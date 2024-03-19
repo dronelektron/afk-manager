@@ -1,7 +1,7 @@
-#if defined _afkm_use_case_included
+#if defined _afk_manager_use_case_included
  #endinput
 #endif
-#define _afkm_use_case_included
+#define _afk_manager_use_case_included
 
 #define TEAM_SPECTATOR 1
 #define CLIENT_NOT_FOUND -1
