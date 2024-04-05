@@ -12,12 +12,12 @@
 
     "Player moved to spectators"
     {
-        "ru"    "Игрок {wheat}{1}{default} перемещен в наблюдатели"
+        "ru"    "Игрок F5DEB3{1} перемещен в наблюдатели"
     }
 
     "Player kicked"
     {
-        "ru"    "Игрок {wheat}{1}{default} кикнут"
+        "ru"    "Игрок F5DEB3{1} кикнут"
     }
 
     "You are kicked for inactivity"
@@ -37,16 +37,16 @@
 
     "seconds"
     {
-        "ru"    "{wheat}{1}{default} сек."
+        "ru"    "F5DEB3{1} сек."
     }
 
     "minutes"
     {
-        "ru"    "{wheat}{1}{default} мин."
+        "ru"    "F5DEB3{1} мин."
     }
 
     "minutes seconds"
     {
-        "ru"    "{wheat}{1}{default} мин. и {wheat}{2}{default} сек."
+        "ru"    "F5DEB3{1} мин. и F5DEB3{2} сек."
     }
 }

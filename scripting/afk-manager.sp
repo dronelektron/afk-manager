@@ -1,7 +1,5 @@
 #include <sourcemod>
 
-#include "morecolors"
-
 #include "afk-detector/api"
 #include "afk-manager/message"
 #include "afk-manager/use-case"
