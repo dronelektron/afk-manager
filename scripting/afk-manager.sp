@@ -16,7 +16,7 @@ public Plugin myinfo = {
     name = "AFK manager",
     author = "Dron-elektron",
     description = "Allows you to manage players who are inactive",
-    version = "2.0.0",
+    version = "2.0.1",
     url = "https://github.com/dronelektron/afk-manager"
 };
 
