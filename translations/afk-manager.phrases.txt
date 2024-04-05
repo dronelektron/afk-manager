@@ -2,7 +2,7 @@
 {
     "Prefix colored"
     {
-        "en"    "{blue}[AFK manager]{default} "
+        "en"    "99CCFF[AFK manager] "
     }
 
     "Inactive player"
@@ -20,13 +20,13 @@
     "Player moved to spectators"
     {
         "#format"   "{1:N}"
-        "en"    "Player {wheat}{1}{default} moved to spectators"
+        "en"    "Player F5DEB3{1} moved to spectators"
     }
 
     "Player kicked"
     {
         "#format"   "{1:N}"
-        "en"    "Player {wheat}{1}{default} kicked"
+        "en"    "Player F5DEB3{1} kicked"
     }
 
     "You are kicked for inactivity"
@@ -49,18 +49,18 @@
     "seconds"
     {
         "#format"   "{1:d}"
-        "en"    "{wheat}{1}{default} sec."
+        "en"    "F5DEB3{1} sec."
     }
 
     "minutes"
     {
         "#format"   "{1:d}"
-        "en"    "{wheat}{1}{default} min."
+        "en"    "F5DEB3{1} min."
     }
 
     "minutes seconds"
     {
         "#format"   "{1:d},{2:d}"
-        "en"    "{wheat}{1}{default} min. and {wheat}{2}{default} sec."
+        "en"    "F5DEB3{1} min. and F5DEB3{2} sec."
     }
 }

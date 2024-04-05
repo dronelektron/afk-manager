@@ -1,42 +1,42 @@
 void Message_InactivePlayer(int client, int seconds) {
     if (seconds < 60) {
-        CPrintToChat(client, "%t%t", PREFIX_COLORED, INACTIVE_PLAYER, SECONDS, seconds);
+        PrintToChat(client, COLOR_DEFAULT ... "%t%t", PREFIX_COLORED, INACTIVE_PLAYER, SECONDS, seconds);
     } else {
         int minutes = seconds / 60;
 
         seconds %= 60;
 
         if (seconds == 0) {
-            CPrintToChat(client, "%t%t", PREFIX_COLORED, INACTIVE_PLAYER, MINUTES, minutes);
+            PrintToChat(client, COLOR_DEFAULT ... "%t%t", PREFIX_COLORED, INACTIVE_PLAYER, MINUTES, minutes);
         } else {
-            CPrintToChat(client, "%t%t", PREFIX_COLORED, INACTIVE_PLAYER, MINUTES_SECONDS, minutes, seconds);
+            PrintToChat(client, COLOR_DEFAULT ... "%t%t", PREFIX_COLORED, INACTIVE_PLAYER, MINUTES_SECONDS, minutes, seconds);
         }
     }
 }
 
 void Message_InactiveSpectator(int client, int seconds) {
     if (seconds < 60) {
-        CPrintToChat(client, "%t%t", PREFIX_COLORED, INACTIVE_SPECTATOR, SECONDS, seconds);
+        PrintToChat(client, COLOR_DEFAULT ... "%t%t", PREFIX_COLORED, INACTIVE_SPECTATOR, SECONDS, seconds);
     } else {
         int minutes = seconds / 60;
 
         seconds %= 60;
 
         if (seconds == 0) {
-            CPrintToChat(client, "%t%t", PREFIX_COLORED, INACTIVE_SPECTATOR, MINUTES, minutes);
+            PrintToChat(client, COLOR_DEFAULT ... "%t%t", PREFIX_COLORED, INACTIVE_SPECTATOR, MINUTES, minutes);
         } else {
-            CPrintToChat(client, "%t%t", PREFIX_COLORED, INACTIVE_SPECTATOR, MINUTES_SECONDS, minutes, seconds);
+            PrintToChat(client, COLOR_DEFAULT ... "%t%t", PREFIX_COLORED, INACTIVE_SPECTATOR, MINUTES_SECONDS, minutes, seconds);
         }
     }
 }
 
 void Message_PlayerMovedToSpectators(int client) {
-    CPrintToChatAll("%t%t", PREFIX_COLORED, "Player moved to spectators", client);
+    PrintToChatAll(COLOR_DEFAULT ... "%t%t", PREFIX_COLORED, "Player moved to spectators", client);
     LogMessage("\"%L\" moved to spectators", client);
 }
 
 void Message_ClientKicked(int client) {
-    CPrintToChatAll("%t%t", PREFIX_COLORED, "Player kicked", client);
+    PrintToChatAll(COLOR_DEFAULT ... "%t%t", PREFIX_COLORED, "Player kicked", client);
     LogMessage("\"%L\" kicked", client);
 }
 

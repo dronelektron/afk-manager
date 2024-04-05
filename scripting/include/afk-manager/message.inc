@@ -3,6 +3,8 @@
 #endif
 #define _afk_manager_message_included
 
+#define COLOR_DEFAULT "\x01"
+
 #define PREFIX "[AFK manager] "
 #define PREFIX_COLORED "Prefix colored"
 
